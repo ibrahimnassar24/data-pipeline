@@ -1,0 +1,38 @@
+default_environment: dev
+project_id: 019ea332-fbf4-7bb8-a7a9-35e08dcc851d
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: meltanolabs-tap-postgres
+    config:
+      host: localhost
+      user: postgres
+      database: finance
+      port: 5432
+    select:
+    - public-*.*
+  loaders:
+  - name: target-postgres
+    variant: meltanolabs
+    pip_url: meltanolabs-target-postgres
+    config:
+      host: localhost
+      user: postgres
+      database: analytical
+      port: 5432
+      default_target_schema: raw
+  utilities:
+  - name: dbt-postgres
+    variant: dbt-labs
+    pip_url: dbt-core dbt-postgres meltano-dbt-ext~=0.5.0
+    config:
+      dbname: analytical
+      host: localhost
+      port: 5432
+      schema: trm
+      user: postgres

@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: dim_transaction_types
+    description: "A dimension table for transaction types."
+    config:
+      materialized: table
+    columns:
+      - name: transaction_types
+        description: "The unique identifier for the transaction type."
+        tests:
+          - unique
+          - not_null # Recommended for a dimension primary key

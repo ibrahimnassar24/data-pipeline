@@ -1,8 +1,25 @@
 version: 2
 
 sources:
-  - name: finance_raw
-    database: analytical
+  - name: firefly
     schema: raw
+    description: "Raw transactional data extracted from the Firefly III PostgreSQL database via Meltano."
     tables:
+      - name: users
+        description: "System users and authentication details."
+      - name: accounts
+        description: "All accounts including asset, expense, revenue, and liabilities."
+      - name: categories
+        description: "Transaction categories."
+      - name: budgets
+        description: "User-defined budgets."
+      - name: tags
+        description: "Tags that can be attached to transactions for flexible grouping."
+      - name: transaction_currencies
+        description: "Currencies supported and used in the system."
       - name: transactions
+        description: "The individual transaction splits or lines containing amounts and specific account mappings."
+      - name: transaction_journals
+        description: "The transaction journal grouping tying together multiple transaction splits into a single logical transaction."
+      - name: tag_transaction_journal
+        description: "Many-to-many mapping table between tags and transaction journals."

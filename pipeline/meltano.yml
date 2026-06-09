@@ -12,7 +12,7 @@ plugins:
     config:
       host: localhost
       user: postgres
-      database: finance
+      database: firefly
       port: 5432
     select:
     - public-*.*

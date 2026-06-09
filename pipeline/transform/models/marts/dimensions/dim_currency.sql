@@ -15,10 +15,7 @@ final as (
         currency_name,
         currency_symbol,
         decimal_places,
-        is_enabled,
-        created_at,
-        updated_at,
-        deleted_at
+        is_enabled
 
     from stg_currencies
 

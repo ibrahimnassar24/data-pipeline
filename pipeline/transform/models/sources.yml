@@ -2,24 +2,69 @@ version: 2
 
 sources:
   - name: firefly
+    description: "Firefly III operational database"
+
+    database: analytical
     schema: raw
-    description: "Raw transactional data extracted from the Firefly III PostgreSQL database via Meltano."
+
     tables:
+
       - name: users
-        description: "System users and authentication details."
+        description: "Application users"
+
+      - name: user_groups
+        description: "User groups"
+
       - name: accounts
-        description: "All accounts including asset, expense, revenue, and liabilities."
-      - name: categories
-        description: "Transaction categories."
-      - name: budgets
-        description: "User-defined budgets."
-      - name: tags
-        description: "Tags that can be attached to transactions for flexible grouping."
-      - name: transaction_currencies
-        description: "Currencies supported and used in the system."
-      - name: transactions
-        description: "The individual transaction splits or lines containing amounts and specific account mappings."
+        description: "Financial accounts"
+
+      - name: account_types
+        description: "Account type definitions"
+
+      - name: account_balances
+        description: "Historical account balances"
+
       - name: transaction_journals
-        description: "The transaction journal grouping tying together multiple transaction splits into a single logical transaction."
+        description: "Transaction journal headers"
+
+      - name: transactions
+        description: "Transaction line items"
+
+      - name: transaction_types
+        description: "Deposit, withdrawal, transfer, etc."
+
+      - name: transaction_currencies
+        description: "Supported currencies"
+
+      - name: currency_exchange_rates
+        description: "Currency exchange rates"
+
+      - name: categories
+        description: "Transaction categories"
+
+      - name: category_transaction
+        description: "Category to transaction mapping"
+
+      - name: tags
+        description: "User-defined transaction tags"
+
       - name: tag_transaction_journal
-        description: "Many-to-many mapping table between tags and transaction journals."
+        description: "Tag to transaction journal mapping"
+
+      - name: budgets
+        description: "User budgets"
+
+      - name: budget_transaction
+        description: "Budget to transaction mapping"
+
+      - name: budget_limits
+        description: "Budget limits"
+
+      - name: piggy_banks
+        description: "Savings goals"
+
+      - name: bills
+        description: "Recurring bills"
+
+      - name: recurrences
+        description: "Recurring transaction definitions"

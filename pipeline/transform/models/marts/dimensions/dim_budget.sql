@@ -9,7 +9,7 @@ with stg_budgets as (
 final as (
 
     select
-        gen_random_uuid() as budget_key,
+        {{ dbt_utils.generate_surrogate_key(['budget_id']) }} as budget_key,
         budget_id,
         user_id,
         budget_name,

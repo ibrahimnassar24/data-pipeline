@@ -10,10 +10,10 @@ plugins:
     variant: meltanolabs
     pip_url: meltanolabs-tap-postgres
     config:
-      host: localhost
-      user: postgres
-      database: firefly
+      database: fireflydb
+      host: 10.100.50.7
       port: 5432
+      user: fireflyuser
     select:
     - public-*.*
   loaders:
@@ -30,9 +30,10 @@ plugins:
   - name: dbt-postgres
     variant: dbt-labs
     pip_url: dbt-core dbt-postgres meltano-dbt-ext~=0.5.0
+    python: python3.13
     config:
       dbname: analytical
       host: localhost
       port: 5432
-      schema: trm
+      schema: trn
       user: postgres

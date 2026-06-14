@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('firefly', 'tags') }}
+    select * from {{ source('raw', 'tags') }}
 
 ),
 

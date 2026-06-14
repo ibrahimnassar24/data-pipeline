@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: firefly
+  - name: raw
     description: "Firefly III operational database"
 
     database: analytical
@@ -14,6 +14,10 @@ sources:
 
       - name: user_groups
         description: "User groups"
+
+      - name: group_memberships
+
+      - name: user_roles
 
       - name: accounts
         description: "Financial accounts"
@@ -42,8 +46,8 @@ sources:
       - name: categories
         description: "Transaction categories"
 
-      - name: category_transaction
-        description: "Category to transaction mapping"
+      - name: category_transaction_journal
+        description: "Category to transaction journal mapping"
 
       - name: tags
         description: "User-defined transaction tags"

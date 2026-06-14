@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('raw', 'tag_transaction_journal') }}
+    select * from {{ source('raw', 'category_transaction_journal') }}
 
 ),
 
@@ -8,7 +8,7 @@ renamed as (
 
     select
         id,
-        tag_id,
+        category_id,
         transaction_journal_id
     from source
 

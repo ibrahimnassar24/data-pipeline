@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('firefly', 'categories') }}
+    select * from {{ source('raw', 'categories') }}
 
 ),
 

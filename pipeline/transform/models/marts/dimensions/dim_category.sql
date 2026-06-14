@@ -9,7 +9,7 @@ with stg_categories as (
 final as (
 
     select
-        gen_random_uuid() as category_key,
+        {{ dbt_utils.generate_surrogate_key(['category_id']) }} as category_key,
         category_id,
         user_id,
         category_name,

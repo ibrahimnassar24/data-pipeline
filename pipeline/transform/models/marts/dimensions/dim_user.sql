@@ -9,9 +9,10 @@ with stg_users as (
 final as (
 
     select
-        gen_random_uuid() as user_key,
+        {{ dbt_utils.generate_surrogate_key(['user_id']) }} as user_key,
         user_id,
-        user_group_id,
+        group_name,
+        role_name,
         email,
         is_blocked,
         created_at,

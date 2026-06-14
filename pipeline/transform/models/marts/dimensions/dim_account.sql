@@ -9,11 +9,14 @@ with stg_accounts as (
 final as (
 
     select
-        gen_random_uuid() as account_key,
+        {{ dbt_utils.generate_surrogate_key(['account_id', 'currency_code']) }} as account_key,
         account_id,
         user_id,
         account_type_id,
+        currency_id,
         account_name,
+        account_type,
+        currency_code,
         iban,
         is_active,
         is_encrypted,

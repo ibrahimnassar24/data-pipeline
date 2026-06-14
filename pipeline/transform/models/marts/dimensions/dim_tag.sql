@@ -9,7 +9,7 @@ with stg_tags as (
 final as (
 
     select
-        gen_random_uuid() as tag_key,
+        {{ dbt_utils.generate_surrogate_key(['tag_id']) }} as tag_key,
         tag_id,
         user_id,
         tag_name,

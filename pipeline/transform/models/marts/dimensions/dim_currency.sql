@@ -9,7 +9,7 @@ with stg_currencies as (
 final as (
 
     select
-        gen_random_uuid() as currency_key,
+        {{ dbt_utils.generate_surrogate_key(['currency_id']) }} as currency_key,
         currency_id,
         currency_code,
         currency_name,

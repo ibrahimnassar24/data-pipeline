@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: rpt_income_statement
+    description: Monthly income statement (P&L).
+
+    columns:
+      - name: income_statement_key
+        tests:
+          - unique
+          - not_null
+
+      - name: year
+        tests:
+          - not_null
+
+      - name: month_number
+        tests:
+          - not_null
+
+      - name: total_income_egp
+        tests:
+          - not_null
+
+      - name: total_expenses_egp
+        tests:
+          - not_null
